@@ -13,7 +13,7 @@ Route::get('giris-yap', [HomeController::class, 'loginGet'])->name('panel.login.
 Route::middleware("adminMiddleware")->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('panel.home');
 
-    Route::get("/ilanlarim",[HomeController::class,""])
+    Route::get("/ilanlarim",[HomeController::class,""]);
 
 
 
