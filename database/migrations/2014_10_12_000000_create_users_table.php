@@ -17,12 +17,11 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->integer('role')->default(0);
             $table->boolean('status')->default(1);
             $table->text('address')->nullable();
             $table->string('city')->nullable();
             $table->string('district')->nullable();
-            $table->string('office')->nullable();
+            $table->double("account")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

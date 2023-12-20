@@ -10,11 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tender_images', function (Blueprint $table) {
-            $table->increments("id");
-            $table->integer("tender_id")->unsigned();
-            $table->string("images")->nullable();
-            $table->string("url")->nullable();
+        Schema::create('sub_adverts', function (Blueprint $table) {
+            $table->id();
+            $table->string("name")->nullable();
+            $table->longText("content")->nullable();
+            $table->double("price")->nullable();
+            $table->boolean("status");
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tender_images');
+        Schema::dropIfExists('sub_adverts');
     }
 };

@@ -10,11 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('adverts', function (Blueprint $table) {
             $table->id();
+            $table->integer("admin_id");
+            $table->integer("subAdvert_id");
+            $table->string("advert_no");
             $table->string("name")->nullable();
-            $table->string("email")->nullable();
-            $table->string("password")->nullable();
+            $table->longText("content")->nullable();
+            $table->double("price")->nullable();
+            $table->dateTime("closed_date")->nullable();
+            $table->boolean("status");
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('adverts');
     }
 };
