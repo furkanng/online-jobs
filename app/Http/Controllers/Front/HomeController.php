@@ -30,5 +30,8 @@ class HomeController extends Controller
     {
         return view('front.pages.contact');
     }
-
+    public function adminlogin()
+    {
+        return view('panel.pages.adminlogin');
+    }
 }

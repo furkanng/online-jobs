@@ -3,7 +3,7 @@
     <a href="{{route("user.home")}}" class="navbar-brand d-flex d-lg-none me-4">
         <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
     </a>
-    <a href="#" class="sidebar-toggler flex-shrink-0">
+    <a href="#" class="sidebar-toggler flex-shrink-0" style="color:#6f42c1;">
         <i class="fa fa-bars"></i>
     </a>
     <form class="d-none d-md-flex ms-4">
@@ -83,7 +83,7 @@
                 <span class="d-none d-lg-inline-flex">{{strtolower(auth()->guard("user")->user()->name)}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">Profilim</a>
+                <a href="{{route("user.profile")}}" class="dropdown-item">Profilim</a>
                 <a href="#" class="dropdown-item">Ayarlar</a>
                 <a href="{{route("user.logout")}}" class="dropdown-item">Çıkış Yap</a>
             </div>

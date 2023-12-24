@@ -56,11 +56,9 @@
     </div>
     <!-- Spinner End -->
 
-    @include("front.inc.navbar")
 
     @yield('content')
 
-    @include("front.inc.footer")
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"

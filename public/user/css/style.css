@@ -1,10 +1,12 @@
 /********** Template CSS **********/
 :root {
-    --primary: #009CFF;
+    --primary: #711DB0;
     --light: #F3F6F9;
     --dark: #191C24;
 }
-
+h3{
+    color: var(--primary);
+}
 .back-to-top {
     position: fixed;
     display: none;

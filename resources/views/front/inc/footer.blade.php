@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <h5 class="text-white mb-4">Hızlı Ulaşım</h5>
-                <a class="btn btn-link text-white-50" href="">Kurumsal</a>
+                <a class="btn btn-link text-white-50" href="#">İş Ara</a>
                 <a class="btn btn-link text-white-50" href="">İletişim</a>
             </div>
 
