@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SubAdvertController extends Controller
+class UserJobController extends Controller
 {
     /**
      * Display a listing of the resource.
