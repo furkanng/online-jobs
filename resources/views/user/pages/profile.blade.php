@@ -16,15 +16,16 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="profile-image">
-                                            <img src="http://online-jobs.test/user/img/user.jpg" alt="Profil Fotoğrafı" class="img-fluid w-100">
+                                            <img src="http://online-jobs.test/user/img/user.jpg" alt="Profil Fotoğrafı"
+                                                 class="img-fluid w-100">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="profile-info">
-                                            <h1>Ahmet Yılmaz</h1>
-                                            <p>Email: ahmet.yilmaz@email.com</p>
-                                            <p>Telefon: +90 555 123 45 67</p>
-                                            <p>Ülke: Türkiye</p>
+                                            <h1>{{  auth()->guard("user")->user()->name   }}</h1>
+                                            <p>{{  auth()->guard("user")->user()->email   }}</p>
+                                            <p>Telefon: {{  auth()->guard("user")->user()->phone   }}</p>
+                                            <p>Ülke: {{  auth()->guard("user")->user()->city   }}</p>
                                         </div>
                                     </div>
                                 </div>
