@@ -3,9 +3,6 @@
 @section('title', 'İlanlar')
 @section('content')
 
-
-
-
     <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
@@ -13,25 +10,31 @@
                 <h6 class="mb-0">İlanlar</h6>
                 <a href="">Show All</a>
             </div>
-            <div class="row">
-                <div class="col-md mb-4 order-md-2">
-                    <div class="card-link">
-                        <div class="card p-3 position-relative">
-                            <div class="position-absolute top-0 end-0 mt-2 me-2">
-                                <button class="btn btn-outline-dark" onclick="window.location='{{ route("user.jobdetail") }}';">Teklif Ver</button>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="icon mr-3 rounded-circle bg-primary p-2">
-                                    <i class="fas fa-newspaper fa-2x text-white"></i>
+
+
+            @foreach($adverts as $advert)
+                <div class="row">
+                    <div class="col-md mb-4 order-md-2">
+                        <div class="card-link">
+                            <div class="card p-3 position-relative">
+                                <div class="position-absolute top-0 end-0 mt-2 me-2">
+                                    <button class="btn btn-outline-dark"
+                                            onclick="window.location='{{ route("user.jobdetail",["id" => $advert["id"]]) }}';">
+                                        Teklif Ver
+                                    </button>
                                 </div>
-                                <div class="text-left">
-                                    <h5 class="card-title">Courier Service website</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted p-2">$250.00 – 750.00 AUD</h6>
-                                    <p class="card-text">
-                                        I am looking for a skilled web developer to create a courier service website that focuses on facilitating online booking and payment. The main purpose of this website is to provide customers with a convenient platform to book and pay for courier services.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center mt-3 text-info">
-                                        <div class="d-flex">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon mr-3 rounded-circle bg-primary p-2">
+                                        <i class="fas fa-newspaper fa-2x text-white"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h5 class="card-title">{{  $advert["name"]   }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted p-2">{{  $advert["price"]   }} tl</h6>
+                                        <p class="card-text">
+                                            {{  $advert["content"]   }}
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3 text-info">
+                                            <div class="d-flex">
                                 <span class="mr-2 ">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -39,81 +42,29 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </span>
-                                            <span class="p-2"></span>
-                                            <span class="ml-2">
+                                                <span class="p-2"></span>
+                                                <span class="ml-2">
                                     <i class="fas fa-comment"></i>
                                     <span class="ml-1">25</span>
                                 </span>
-                                        </div>
-                                        <div>
-                                            <small class="text-muted">5 dakika önce</small>
-                                            <span class="p-2"></span>
-                                            <span class="ml-2">
+                                            </div>
+                                            <div>
+                                                <small class="text-muted">5 dakika önce</small>
+                                                <span class="p-2"></span>
+                                                <span class="ml-2">
                                     <i class="far fa-bookmark"></i>
                                 </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- İsteğe bağlı olarak başka kartlar ekleyebilirsiniz -->
                 </div>
-                <!-- İsteğe bağlı olarak başka kartlar ekleyebilirsiniz -->
-            </div>
 
-
-
-            <div class="row">
-                <div class="col-md mb-4 order-md-2">
-                    <div class="card-link">
-                        <div class="card p-3 position-relative">
-                            <div class="position-absolute top-0 end-0 mt-2 me-2">
-                                <button class="btn btn-outline-dark" onclick="window.location='{{ route("user.jobdetail") }}';">Teklif Ver</button>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="icon mr-3 rounded-circle bg-primary p-2">
-                                    <i class="fas fa-newspaper fa-2x text-white"></i>
-                                </div>
-                                <div class="text-left">
-                                    <h5 class="card-title">Courier Service website</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted p-2">$250.00 – 750.00 AUD</h6>
-                                    <p class="card-text">
-                                        I am looking for a skilled web developer to create a courier service website that focuses on facilitating online booking and payment. The main purpose of this website is to provide customers with a convenient platform to book and pay for courier services.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center mt-3 text-info">
-                                        <div class="d-flex">
-                                <span class="mr-2">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                                            <span class="p-2"></span>
-                                            <span class="ml-2">
-                                    <i class="fas fa-comment"></i>
-                                    <span class="ml-1">25</span>
-                                </span>
-                                        </div>
-                                        <div>
-                                            <small class="text-muted">5 dakika önce</small>
-                                            <span class="p-2"></span>
-                                            <span class="ml-2">
-                                    <i class="far fa-bookmark"></i>
-                                </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- İsteğe bağlı olarak başka kartlar ekleyebilirsiniz -->
-            </div>
-
-
-
-
+            @endforeach
 
         </div>
     </div>

@@ -5,25 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Advert extends Model
+class UserJobs extends Model
 {
     use HasFactory;
 
-    protected $table = "adverts";
+    protected $table = "userjobs";
 
     protected $fillable = [
+        "user_id",
         "admin_id",
         "advert_no",
         "name",
         "content",
         "price",
-        "closed_date",
+        "dead_line",
         "status",
     ];
-
-    public function admin()
-    {
-        return $this->belongsTo(Admin::class, "admin_id", "id");
-    }
-
 }
