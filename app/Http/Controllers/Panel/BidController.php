@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bid;
 use Illuminate\Http\Request;
 
 class BidController extends Controller
@@ -12,7 +13,8 @@ class BidController extends Controller
      */
     public function index()
     {
-        //
+        $bids = Bid::all();
+        return view('#', compact("bids"));
     }
 
     /**
@@ -28,7 +30,12 @@ class BidController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "price" => "required",
+        ]);
+        $model = new Bid();
+        $model->fill($request->all())->save();
+        return redirect()->back();
     }
 
     /**
@@ -44,7 +51,8 @@ class BidController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $bid = Bid::findOrFail($id);
+        return view("#", compact("bid"));
     }
 
     /**
@@ -52,7 +60,12 @@ class BidController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "price" => "required|sometimes",
+        ]);
+        $model = Bid::findOrFail($id);
+        $model->fill($request->all())->save();
+        return redirect()->route("#");
     }
 
     /**
@@ -60,6 +73,8 @@ class BidController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $model = Bid::findOrFail($id);
+        $model->delete();
+        return redirect()->back();
     }
 }

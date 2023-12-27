@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advert;
 use Illuminate\Http\Request;
 
 class AdvertController extends Controller
@@ -12,7 +13,8 @@ class AdvertController extends Controller
      */
     public function index()
     {
-        //
+        $adverts = Advert::all();
+        return view('#', compact("adverts"));
     }
 
     /**
@@ -28,7 +30,14 @@ class AdvertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "content" => "required",
+            "price" => "required",
+        ]);
+        $model = new Advert();
+        $model->fill($request->all())->save();
+        return redirect()->back();
     }
 
     /**
@@ -44,7 +53,8 @@ class AdvertController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $advert = Advert::findOrFail($id);
+        return view("#", compact("advert"));
     }
 
     /**
@@ -52,7 +62,14 @@ class AdvertController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "name" => "required|sometimes",
+            "content" => "required|sometimes",
+            "price" => "required|sometimes",
+        ]);
+        $model = Advert::findOrFail($id);
+        $model->fill($request->all())->save();
+        return redirect()->route("#");
     }
 
     /**
@@ -60,6 +77,8 @@ class AdvertController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $model = Advert::findOrFail($id);
+        $model->delete();
+        return redirect()->back();
     }
 }

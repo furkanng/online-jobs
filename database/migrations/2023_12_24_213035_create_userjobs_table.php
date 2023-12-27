@@ -10,12 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('sub_adverts', function (Blueprint $table) {
+        Schema::create('userjobs', function (Blueprint $table) {
             $table->id();
+            $table->integer("user_id");
+            $table->integer("admin_id");
             $table->string("name")->nullable();
-            $table->longText("content")->nullable();
+            $table->string("advert_no")->nullable();
+            $table->text("content")->nullable();
+            $table->boolean("status")->nullable();
+            $table->dateTime("dead_line")->nullable();
             $table->double("price")->nullable();
-            $table->boolean("status");
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('sub_adverts');
+        Schema::dropIfExists('userjobs');
     }
 };

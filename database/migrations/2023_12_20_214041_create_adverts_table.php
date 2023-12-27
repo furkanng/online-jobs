@@ -13,7 +13,6 @@ return new class extends Migration {
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
             $table->integer("admin_id");
-            $table->integer("subAdvert_id");
             $table->string("advert_no");
             $table->string("name")->nullable();
             $table->longText("content")->nullable();

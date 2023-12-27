@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Bid extends Model
 {
     use HasFactory;
+
+    protected $table = "bids";
+
+    protected $fillable = [
+        "user_id",
+        "advert_no",
+        "price",
+    ];
 }
