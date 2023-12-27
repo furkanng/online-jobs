@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 
-@section('title', 'Teklifler ve İlanlar')
+@section('title', 'Tamamlanan İşlerim')
 @section('content')
 
     <div class="container-fluid pt-4 px-4">

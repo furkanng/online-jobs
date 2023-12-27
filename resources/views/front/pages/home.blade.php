@@ -15,7 +15,7 @@
                                href="{{route("front.login")}}">
                                 <div class="rounded p-4">
                                     <div class="icon mb-3 ">
-                                        <i class="fas fa-user fa-2x" style="color: #00b98e;"></i>
+                                        <i class="fas fa-user fa-2x"></i>
                                     </div>
                                     <h6>İş Arıyorum</h6>
                                     <p>İş alan olarak, bir iş için arayış içerisindeyim</p>

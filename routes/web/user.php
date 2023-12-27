@@ -18,6 +18,5 @@ Route::middleware("userMiddleware")->group(function () {
     Route::get('/mesajlarim' ,[HomeController::class, 'message'])->name('user.message');
     Route::get('/cüzdan' ,[HomeController::class, 'wallet'])->name('user.wallet');
 
-
     Route::get('cikis-yap', [AuthController::class, 'logout'])->name('user.logout');
 });

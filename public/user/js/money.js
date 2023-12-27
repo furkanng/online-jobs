@@ -6,12 +6,6 @@ function showBalance(event) {
     document.getElementById('balanceSection').style.display = 'block';
 }
 
-function showSendMoneyForm(event) {
-    event.preventDefault();
-    hideAllForms();
-    document.getElementById('sendMoneyForm').style.display = 'block';
-}
-
 function showReceiveMoneyForm(event) {
     event.preventDefault();
     hideAllForms();
@@ -35,19 +29,6 @@ function updateBalance() {
     alert("Bakiye güncellemesi yapmak için para gönderme veya alma işlemi gerçekleştirin.");
 }
 
-function sendMoney(event) {
-    event.preventDefault();
-    const amount = +document.getElementById('amount').value;
-    if (amount > currentBalance) {
-        alert("Yetersiz bakiye! Daha düşük bir miktar deneyin.");
-        return;
-    }
-
-    currentBalance -= amount;
-    alert(`Para gönderildi! Miktar: $${amount.toFixed(2)}`);
-    addToTransactionHistory(`Gönderildi: Alıcı, Miktar: $${amount.toFixed(2)}`);
-    document.getElementById('balance').innerText = `$${currentBalance.toFixed(2)}`;
-}
 
 function receiveMoney(event) {
     event.preventDefault();
@@ -80,3 +61,36 @@ function populateTransactionHistory() {
     // Örneğin, bir API'den işlem geçmişi verileri alınabilir
     // Bu örnekte sadece varsayılan bir işlem ekleniyor
 }
+function showCardInfo(event) {
+    event.preventDefault();
+    hideAllSections();  // Tüm bölümleri gizle
+
+    // Sadece tıklanan kısmı görünür yap
+    document.getElementById('card-info-form').style.display = 'block';
+}
+
+// money.js
+
+function paraGonder(event) {
+    event.preventDefault();
+
+    // Form verilerini alın
+    const alici = document.getElementById('alici').value;
+    const gonderilenMiktar = document.getElementById('gonderilenMiktar').value;
+
+    // Doğrulama mantığınızı buraya ekleyin
+
+    // Para göndermek için bir AJAX isteği yapın
+    axios.post('/para-gonder', { alici, gonderilenMiktar })
+        .then(response => {
+            // Başarıyla ele alın
+            console.log(response.data.mesaj);
+            // Arayüzü güncellemek veya başarı mesajı göstermek isteyebilirsiniz
+        })
+        .catch(error => {
+            // Hataları ele alın
+            console.error(error.response.data.mesaj);
+            // Kullanıcıya bir hata mesajı göstermek isteyebilirsiniz
+        });
+}
+

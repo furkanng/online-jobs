@@ -20,14 +20,18 @@
                             <a class="nav-link" href="#" onclick="showBalance(event)">Bakiye</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="showSendMoneyForm(event)">Para Gönder</a>
+                            <a class="nav-link" href="#" onclick="showReceiveMoneyForm(event)">Para Alma</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="showReceiveMoneyForm(event)">Para Alma</a>
+                            <a class="nav-link" href="#" onclick="sendMoney(event)">Para Gönderme</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="showTransactionHistory(event)">İşlem Geçmişi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showCardInfo(event)">Kart Bilgilerim</a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -45,27 +49,6 @@
                 </div>
             </div>
 
-            <!-- Para Gönderme Formu -->
-            <div class="row mb-4 wallet-section" id="sendMoneyForm" style="display: none;">
-                <div class="col-md-6 offset-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Para Gönder</h5>
-                            <form id="sendMoneyForm" onsubmit="sendMoney(event)">
-                                <div class="form-group">
-                                    <label for="recipient">Alıcı:</label>
-                                    <input type="text" class="form-control" id="recipient" placeholder="Alıcı kullanıcı adı" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="amount">Miktar:</label>
-                                    <input type="number" class="form-control" id="amount" placeholder="Miktar" required>
-                                </div>
-                                <button type="submit" class="btn btn-info m-2">Gönder</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Para Alma Formu -->
             <div class="row mb-4 wallet-section" id="receiveMoneyForm" style="display: none;">
@@ -89,6 +72,28 @@
                 </div>
             </div>
 
+            <!-- Para Gönderme Formu -->
+            <div class="row mb-4 wallet-section" id="sendMoneyForm" style="display: none;">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Para Gönderme</h5>
+                            <form id="sendMoneyForm" onsubmit="paraGonder(event)">
+                                <div class="form-group">
+                                    <label for="alici">Alıcı:</label>
+                                    <input type="text" class="form-control" id="alici" placeholder="Alıcı kullanıcı adı" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gonderilenMiktar">Miktar:</label>
+                                    <input type="number" class="form-control" id="gonderilenMiktar" placeholder="Gönderilen miktar" required>
+                                </div>
+                                <button type="submit" class="btn btn-info m-2">Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- İşlem Geçmişi -->
             <div class="row mb-4 wallet-section" id="transactionHistory" style="display: none;">
                 <div class="col-md-6 offset-md-3">
@@ -96,13 +101,34 @@
                         <div class="card-body">
                             <h5 class="card-title">İşlem Geçmişi</h5>
                             <ul id="transactionHistoryList" class="list-group">
-                                <!-- İşlem geçmişi burada dinamik olarak eklenecek -->
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
+            <!-- Kart Bilgileri Formu -->
+            <div class="row mb-4 wallet-section" id="card-info-form" style="display: none;">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Kart Bilgileri</h5>
+                            <form id="cardForm" onsubmit="showCardInfo(event)">
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Kart Numarası:</label>
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="Kart numarası" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="expirationDate" class="form-label">Son Kullanma Tarihi:</label>
+                                    <input type="text" class="form-control" id="expirationDate" placeholder="MM/YYYY" required>
+                                </div>
+                                <button type="submit" class="btn btn-info">Kaydet</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 
-@section('title', 'Home Page')
+@section('title', 'Mikro İşlerim')
 @section('content')
 
 

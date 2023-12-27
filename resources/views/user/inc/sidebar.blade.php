@@ -34,3 +34,56 @@
     </nav>
 </div>
 <!-- Sidebar End -->
+<!-- jQuery kütüphanesini ekleyin (isteğe bağlı) -->
+<!-- jQuery kütüphanesini ekleyin (isteğe bağlı) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Sayfa yüklendiğinde çağrılacak fonksiyon
+        updateActiveLink();
+
+        // Her bir nav-item'e tıklandığında çağrılacak fonksiyon
+        $('.navbar-nav a.nav-link').on('click', function() {
+            // Tüm linklerden active sınıfını kaldır
+            $('.navbar-nav a.nav-link').removeClass('active');
+            // Tıklanan linke active sınıfını ekle
+            $(this).addClass('active');
+
+            // Dropdown linkine tıklandığında dropdown'un kendisini de active yap
+            if ($(this).hasClass('dropdown-toggle')) {
+                $(this).closest('.dropdown').addClass('active');
+            }
+        });
+
+        // Dropdown içindeki bir link tıklandığında dropdown'un kendisini de active yap
+        $('.navbar-nav .dropdown-menu a.dropdown-item').on('click', function() {
+            $(this).closest('.dropdown').addClass('active');
+        });
+
+        // Fonksiyon: Sayfa yüklendiğinde veya bir link tıklandığında çağrılır
+        function updateActiveLink() {
+            // Aktif olan linkin href değerini al
+            var currentHref = window.location.href;
+
+            // Tüm linklerden active sınıfını kaldır
+            $('.navbar-nav a.nav-link').removeClass('active');
+
+            // Her bir link için kontrol et
+            $('.navbar-nav a.nav-link').each(function() {
+                // Eğer linkin href değeri, aktif olan sayfanın URL'siyle eşleşiyorsa
+                if ($(this).attr('href') === currentHref) {
+                    // Bu linki aktif yap (active sınıfını ekle)
+                    $(this).addClass('active');
+
+                    // Dropdown linkine tıklandığında dropdown'un kendisini de active yap
+                    if ($(this).hasClass('dropdown-toggle')) {
+                        $(this).closest('.dropdown').addClass('active');
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+

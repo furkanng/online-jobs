@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 
-@section('title', 'Home Page')
+@section('title', 'İlan Detayı')
 @section('content')
     <div class="container-fluid pt-4 ">
         <div class="bg-light text-left rounded p-4">
