@@ -69,19 +69,19 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route("panel.tender.index")}}" class="menu-link">
+                    <a href="" class="menu-link">
                         <div data-i18n="Account">İhaleler</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.tender.create")}}" class="menu-link">
+                    <a href="" class="menu-link">
                         <div data-i18n="Notifications">İhale Ekle</div>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="menu-item">
-            <a href="{{route("panel.archive.index")}}" class="menu-link">
+            <a href="" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Arşiv Yönetimi</div>
             </a>
