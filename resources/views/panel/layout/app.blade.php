@@ -46,7 +46,10 @@
     <link rel="stylesheet" href="{{asset("panel/assets/vendor/libs/apex-charts/apex-charts.css")}}"/>
 
     <!-- Page CSS -->
-
+    <link href="{{asset("panel/assets/css/bootstrap.min.css")}}" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="{{asset("panel/assets/css/demo.css")}}" rel="stylesheet">
+    <link rel="{{asset("panel/assets/css/sidebar.css")}}" href="style.css">
     <!-- Helpers -->
     <script src="{{asset("panel/assets/vendor/js/helpers.js")}}"></script>
 

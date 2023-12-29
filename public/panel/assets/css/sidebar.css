@@ -1,0 +1,70 @@
+body {
+    font-size: 0.875rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 56px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar .site-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.sidebar .admin-info {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar .admin-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .admin-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.sidebar .admin-role {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.sidebar-menu {
+    margin-top: 20px;
+}
+
+.sidebar-menu .menu-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu .menu-item:hover {
+    background-color: #f8f9fa;
+}
+
+.sidebar-menu i {
+    margin-right: 8px;
+}
+
+.main {
+    padding: 20px;
+}
