@@ -15,15 +15,15 @@
                             <div class="container profile-container">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="profile-image">
-                                            <img src="http://online-jobs.test/user/img/user.jpg" alt="Profil Fotoğrafı"
+                                        <div class="profile-image" style="width: 200px">
+                                            <img src="{{asset("user/img/no-image.jpg")}}" alt="Profil Fotoğrafı"
                                                  class="img-fluid w-100">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="profile-info">
                                             <h1>{{  auth()->guard("user")->user()->name   }}</h1>
-                                            <p>{{  auth()->guard("user")->user()->email   }}</p>
+                                            <p>mail: {{  auth()->guard("user")->user()->email   }}</p>
                                             <p>Telefon: {{  auth()->guard("user")->user()->phone   }}</p>
                                             <p>Ülke: {{  auth()->guard("user")->user()->city   }}</p>
                                         </div>
@@ -89,7 +89,9 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="card">
-                                            <img src="https://admin.bidy.com.tr/Uploads/blog/4c4340e1ac3b4e85bb3e3816df09977d.webp" alt="Proje 1" class="card-img-top h-75">
+                                            <img
+                                                src="https://admin.bidy.com.tr/Uploads/blog/4c4340e1ac3b4e85bb3e3816df09977d.webp"
+                                                alt="Proje 1" class="card-img-top h-75">
                                             <div class="card-body">
                                                 <h5 class="card-title">Proje 1</h5>
                                             </div>
@@ -97,7 +99,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIlwLQXJTMB2s8eCddBBtgTX19n5_DiLxgrMhrC8-3AJ37J2-rfVMgs0lxDR26k-llKsM&usqp=CAU" alt="Proje 2" class="card-img-top h-75">
+                                            <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIlwLQXJTMB2s8eCddBBtgTX19n5_DiLxgrMhrC8-3AJ37J2-rfVMgs0lxDR26k-llKsM&usqp=CAU"
+                                                alt="Proje 2" class="card-img-top h-75">
                                             <div class="card-body">
                                                 <h5 class="card-title">Proje 2</h5>
                                             </div>
