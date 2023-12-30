@@ -14,6 +14,7 @@
                     <table class="table">
                         <thead>
                         <tr>
+                            <th scope="col">İlan Tipi</th>
                             <th scope="col">İlan Bilgisi</th>
                             <th scope="col">Teklif Veren</th>
                             <th scope="col">Teklif Değeri</th>
@@ -23,10 +24,21 @@
                         </thead>
                         <tbody>
                         <tr>
+                            <td>İlan</td>
                             <td>Kurye Web Sitesi</td>
                             <td>Seda MALKOÇ</td>
                             <td>$1,800</td>
                             <td>8 gün</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mikro İş</td>
+                            <td>Youtube Abonelik</td>
+                            <td>Fatih Sayar</td>
+                            <td>$200</td>
+                            <td>1 gün</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Onayla</a>
                             </td>

@@ -20,6 +20,11 @@ Route::middleware("adminMiddleware")->group(function () {
     Route::get("/teklifler",[HomeController::class,"proposal"])->name('panel.proposal');
     Route::get("/odeme",[HomeController::class,"payment"])->name('panel.payment');
     Route::get("/kart-bilgi",[HomeController::class,"cardinfo"])->name('panel.cardinfo');
+    Route::get("/gecmis-odemeler",[HomeController::class,"txhistory"])->name('panel.txhistory');
+    Route::get("/mikro-is",[HomeController::class,"microjob"])->name('panel.microjob');
+    Route::get("/mikro-is-ekle",[HomeController::class,"addmicrojob"])->name('panel.addmicrojob');
+    Route::get("/mikro-is-sil",[HomeController::class,"deletemicrojob"])->name('panel.deletemicrojob');
+    Route::get("/mikro-is-duzenle",[HomeController::class,"updatemicrojob"])->name('panel.updatemicrojob');
 
 
 

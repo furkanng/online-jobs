@@ -42,13 +42,32 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.deleteadvert")}}" class="menu-link">
-                        <div data-i18n="Without navbar">İlan Silme</div>
+                    <a href="{{route("panel.updateadvert")}}" class="menu-link">
+                        <div data-i18n="Container">İlan Düzenleme</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons bx bx-task'></i>
+                <div data-i18n="Layouts">Mikro İş İlanı</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{route("panel.microjob")}}" class="menu-link">
+                        <div data-i18n="Without menu">Mikro İşler</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.updateadvert")}}" class="menu-link">
-                        <div data-i18n="Container">İlan Düzenleme</div>
+                    <a href="{{route("panel.addmicrojob")}}" class="menu-link">
+                        <div data-i18n="Without menu">Mikro İş Ekle</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route("panel.updatemicrojob")}}" class="menu-link">
+                        <div data-i18n="Container">Mikro İş Düzenleme</div>
                     </a>
                 </li>
             </ul>
@@ -76,18 +95,12 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="auth-forgot-password-basic.html" class="menu-link">
-                        <div data-i18n="Basic">Forgot Password</div>
+                    <a href="{{route("panel.txhistory")}}" class="menu-link">
+                        <div data-i18n="Basic">Geçmiş Ödemeler</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="menu-item">
-            <a href="{{route("panel.payment")}}" class="menu-link">
-                <i class='menu-icon tf-icons bx bx-wallet'></i>
-                <div data-i18n="Basic">Cards</div>
-            </a>
-        </li>
     </ul>
 </aside>

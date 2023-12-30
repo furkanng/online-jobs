@@ -47,4 +47,24 @@ class HomeController extends Controller
     {
         return view('panel.pages.cardinfo');
     }
+    public function txhistory()
+    {
+        return view('panel.pages.txhistory');
+    }
+    public function microjob()
+    {
+        return view('panel.pages.microjob');
+    }
+    public function addmicrojob()
+    {
+        return view('panel.pages.addmicrojob');
+    }
+    public function deletemicrojob()
+    {
+        return view('panel.pages.deletemicrojob');
+    }
+    public function updatemicrojob()
+    {
+        return view('panel.pages.updatemicrojob');
+    }
 }

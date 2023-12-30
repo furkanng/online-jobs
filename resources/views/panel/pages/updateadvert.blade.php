@@ -17,8 +17,8 @@
                         <th>Açıklama</th>
                         <th>Fiyat</th>
                         <th>Tarih</th>
-                        <th></th>
-                        <th></th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
                     </tr>
                     </thead>
                     <tbody>
