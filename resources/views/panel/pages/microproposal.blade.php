@@ -6,7 +6,7 @@
     <div class="container mt-4">
         <div class="card bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h2 class="mb-0">İlan Teklifleri</h2>
+                <h2 class="mb-0">Mikro İş Teklifler</h2>
             </div>
             <div class="card bg-white rounded p-4 border-0">
                 <div class="mt-4">
@@ -22,44 +22,44 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>İlan</td>
-                            <td>Kurye Web Sitesi</td>
-                            <td>Seda MALKOÇ</td>
-                            <td>$1,800</td>
-                            <td>8 gün</td>
+                            <td>Mikro İş 1</td>
+                            <td>Youtube Abonelik</td>
+                            <td>Fatih Sayar</td>
+                            <td>$200</td>
+                            <td>1 gün</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Onayla</a>
                             </td>
                         </tr>
-                        <!-- Example Offer 1 -->
+                        <!-- Example Micro Job 2 -->
                         <tr>
-                            <td>İlan 2</td>
-                            <td>Another Company</td>
-                            <td>John Doe</td>
-                            <td>$2,500</td>
-                            <td>10 gün</td>
+                            <td>Mikro İş 2</td>
+                            <td>Sosyal Medya Gönderi Tasarımı</td>
+                            <td>Ayşe Demir</td>
+                            <td>$50</td>
+                            <td>2 gün</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Onayla</a>
                             </td>
                         </tr>
-                        <!-- Example Offer 2 -->
+                        <!-- Example Micro Job 3 -->
                         <tr>
-                            <td>İlan 3</td>
-                            <td>Web Design Project</td>
-                            <td>Alice Johnson</td>
-                            <td>$1,200</td>
-                            <td>7 gün</td>
+                            <td>Mikro İş 3</td>
+                            <td>Logo Tasarımı</td>
+                            <td>Mert Yılmaz</td>
+                            <td>$100</td>
+                            <td>3 gün</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Onayla</a>
                             </td>
                         </tr>
-                        <!-- Example Offer 3 -->
+                        <!-- Example Micro Job 4 -->
                         <tr>
-                            <td>İlan 4</td>
-                            <td>Software Development</td>
-                            <td>Bob Smith</td>
-                            <td>$3,000</td>
-                            <td>15 gün</td>
+                            <td>Mikro İş 4</td>
+                            <td>İngilizce Çeviri</td>
+                            <td>Zeynep Kaya</td>
+                            <td>$30</td>
+                            <td>1 gün</td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-sm">Onayla</a>
                             </td>

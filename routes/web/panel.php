@@ -17,7 +17,7 @@ Route::middleware("adminMiddleware")->group(function () {
     Route::get("/ilan-sil",[HomeController::class,"deleteadvert"])->name('panel.deleteadvert');
     Route::get("/ilan-düzenleme",[HomeController::class,"updateadvert"])->name('panel.updateadvert');
     Route::get("/ilan-detay",[HomeController::class,"advertdetail"])->name('panel.advertdetail');
-    Route::get("/teklifler",[HomeController::class,"proposal"])->name('panel.proposal');
+    Route::get("/ilan-teklif",[HomeController::class,"proposal"])->name('panel.proposal');
     Route::get("/odeme",[HomeController::class,"payment"])->name('panel.payment');
     Route::get("/kart-bilgi",[HomeController::class,"cardinfo"])->name('panel.cardinfo');
     Route::get("/gecmis-odemeler",[HomeController::class,"txhistory"])->name('panel.txhistory');
@@ -25,6 +25,7 @@ Route::middleware("adminMiddleware")->group(function () {
     Route::get("/mikro-is-ekle",[HomeController::class,"addmicrojob"])->name('panel.addmicrojob');
     Route::get("/mikro-is-sil",[HomeController::class,"deletemicrojob"])->name('panel.deletemicrojob');
     Route::get("/mikro-is-duzenle",[HomeController::class,"updatemicrojob"])->name('panel.updatemicrojob');
+    Route::get("/mikro-is-teklif",[HomeController::class,"microproposal"])->name('panel.microproposal');
 
 
 

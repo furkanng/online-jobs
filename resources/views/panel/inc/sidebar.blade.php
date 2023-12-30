@@ -73,10 +73,23 @@
             </ul>
         </li>
         <li class="menu-item">
-            <a href="{{route("panel.proposal")}}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-key"></i>
-                <div data-i18n="Basic">Teklifler</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons bx bx-key'></i>
+                <div data-i18n="Layouts">Teklifler</div>
             </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{route("panel.proposal")}}" class="menu-link">
+                        <div data-i18n="Without menu">İlan Teklif</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{route("panel.microproposal")}}" class="menu-link">
+                        <div data-i18n="Without menu">Mikro İşler Teklif</div>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0)" class="menu-link menu-toggle">

@@ -67,4 +67,8 @@ class HomeController extends Controller
     {
         return view('panel.pages.updatemicrojob');
     }
+    public function microproposal()
+    {
+        return view('panel.pages.microproposal');
+    }
 }

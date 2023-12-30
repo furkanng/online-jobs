@@ -12,9 +12,10 @@
                 <div class="container mt-3">
                     <div class="row">
                         <!-- Güncel Bakiye Kartı -->
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <div class="card" style="height: 300px; width: 400px;">
+                                <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+                                    <!-- Dikey ve yatay ortala -->
                                     <h5 class="card-title">Güncel Bakiye</h5>
                                     <p class="card-text">Bakiyeniz: $500.00</p>
                                 </div>
