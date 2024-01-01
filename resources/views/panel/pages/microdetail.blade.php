@@ -5,7 +5,7 @@
     <div class="container mt-4">
         <div class="card bg-light rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h2 class="mb-0">İlan Detayları</h2>
+                <h2 class="mb-0">Mikoro İş Detayları</h2>
             </div>
             <div class="container mt-4 bg-white">
                 <div class="row g-4">
@@ -14,13 +14,13 @@
                             <div class="card border-0">
                                 <div class="card-body">
                                     <form method="POST"
-                                          action="{{route("panel.ilanlar.update",["id" => $advert->id])}}">
+                                          action="{{route("panel.mikro-is.update",["id" => $microjob->id])}}">
                                         @method("PUT")
                                         @csrf
 
                                         <div class="mb-3">
                                             <label for="subject" class="form-label">İlan Başlığı</label>
-                                            <input type="text" class="form-control" value="{{$advert["subject"]}}"
+                                            <input type="text" class="form-control" value="{{$microjob["subject"]}}"
                                                    id="subject" name="subject"
                                                    required>
                                         </div>
@@ -28,12 +28,12 @@
                                         <div class="mb-3">
                                             <label for="content" class="form-label">İlan Açıklaması</label>
                                             <textarea class="form-control" id="content" name="content"
-                                                      rows="4" required>{{$advert["content"]}}</textarea>
+                                                      rows="4" required>{{$microjob["content"]}}</textarea>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="price" class="form-label">Fiyat</label>
-                                            <input type="text" value="{{$advert["price"]}}" class="form-control"
+                                            <input type="text" value="{{$microjob["price"]}}" class="form-control"
                                                    id="price" name="price" required>
                                         </div>
 
@@ -41,7 +41,7 @@
                                             <label for="son_basvuru_tarihi" class="form-label">Son Başvuru
                                                 Tarihi</label>
                                             <input type="date" class="form-control" id="son_basvuru_tarihi"
-                                                   value="{{ \Carbon\Carbon::parse($advert["closed_date"])->format('Y-m-d') }}"
+                                                   value="{{ \Carbon\Carbon::parse($microjob["closed_date"])->format('Y-m-d') }}"
                                                    name="closed_date" required>
                                         </div>
 
@@ -49,8 +49,8 @@
                                             <label for="softwareOptions" class="form-label">Yazılım Seçenekleri</label>
                                             <select id="softwareOptions" class="form-select" name="section"
                                                     onchange="updateSelectedOption()">
-                                                <option value="{{$advert["section"]}}"
-                                                        selected>{{$advert["section"]}}</option>
+                                                <option value="{{$microjob["section"]}}"
+                                                        selected>{{$microjob["section"]}}</option>
                                                 <option value="Web Programlama">Web Programlama</option>
                                                 <option value="Mobil Programlama">Mobil Programlama</option>
                                                 <option value="Masaüstü Programlama">Masaüstü Programlama</option>

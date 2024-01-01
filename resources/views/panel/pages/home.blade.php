@@ -8,7 +8,7 @@
                 <h2 class="mb-0">Ana Sayfa</h2>
             </div>
 
-            <div class="container mt-4 bg-white">
+            <div class="container p-4 mt-4 bg-white">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="row">
@@ -37,8 +37,8 @@
 
                         <div class="mt-4">
                             <h5>İşlemler</h5>
-                            <a href="{{ route("panel.addadvert") }}" class="btn btn-primary mr-2">Yeni İlan Oluştur</a>
-                            <a href="{{route("panel.adverts")}}" class="btn btn-secondary">Tüm İlanları Görüntüle</a>
+                            <a href="" class="btn btn-primary mr-2">Yeni İlan Oluştur</a>
+                            <a href="" class="btn btn-secondary">Tüm İlanları Görüntüle</a>
                         </div>
                     </div>
                 </div>

@@ -65,7 +65,7 @@
                     <div class="app-brand justify-content-center">
                         <a href="{{route("panel.login.get")}}" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                            <img src="{{asset("front/resimler/logo.png")}}" style="width: 200px" alt="logo">
+                            <img src="https://www.f-cdn.com/assets/img/facebook/default-04d56222.jpg" style="width: 200px" alt="logo">
                         </a>
                     </div>
                     <!-- /Logo -->

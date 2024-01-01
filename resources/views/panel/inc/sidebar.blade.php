@@ -1,9 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{route("panel.home")}}" class="app-brand-link">
-              <span class="app-brand-logo demo">
-                  <img src="{{asset("front/resimler/logo.png")}}" alt="logo" width="100px" srcset="">
-              </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">Freelancer</span>
         </a>
 
@@ -32,18 +29,13 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route("panel.adverts")}}" class="menu-link">
+                    <a href="{{route('panel.ilanlar.index')}}" class="menu-link">
                         <div data-i18n="Without menu">İlanlarım</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.addadvert")}}" class="menu-link">
+                    <a href="{{route('panel.ilanlar.create')}}" class="menu-link">
                         <div data-i18n="Without menu">İlan Ekle</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{route("panel.updateadvert")}}" class="menu-link">
-                        <div data-i18n="Container">İlan Düzenleme</div>
                     </a>
                 </li>
             </ul>
@@ -56,18 +48,13 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route("panel.microjob")}}" class="menu-link">
+                    <a href="{{route("panel.mikro-is.index")}}" class="menu-link">
                         <div data-i18n="Without menu">Mikro İşler</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.addmicrojob")}}" class="menu-link">
+                    <a href="{{route("panel.mikro-is.create")}}" class="menu-link">
                         <div data-i18n="Without menu">Mikro İş Ekle</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{route("panel.updatemicrojob")}}" class="menu-link">
-                        <div data-i18n="Container">Mikro İş Düzenleme</div>
                     </a>
                 </li>
             </ul>

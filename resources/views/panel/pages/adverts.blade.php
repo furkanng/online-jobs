@@ -4,72 +4,60 @@
 @section('content')
 
     <div class="container mt-4">
-        <div class="card bg-light text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-                <h2 class="mb-0">İlanlarım</h2>
-            </div>
-            <div class="container mt-4 bg-white">
-                <div class="container">
-                    <div class="row g-4">
-                        <div class="col-lg-6 col-md-12 wow fadeInUp bg-light p-4" data-wow-delay="0.1s">
-                            <div class="project-item rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <a class="d-block h5 mb-2" href="{{route("panel.advertdetail")}}">E-ticaret Platformu Geliştirme</a>
-                                </div>
-                                <div class="p-3 pb-0">
-                                    <h5 class="text-primary mb-3">$1,200 - $1,800</h5>
-                                    <p>Online satış platformu için yazılım geliştirici arıyoruz. E-ticaret konusunda deneyimli adaylar başvuruda bulunabilirler.</p>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-shopping-cart text-primary me-2"></i>E-commerce Development</small>
-                                </div>
-                            </div>
-                        </div>
+        <div class="card bg-gradient text-center rounded p-4">
+            <div class="card">
+                <h5 class="card-header">İlanlarım</h5>
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Konu</th>
+                            <th>Başlık</th>
+                            <th>Bitiş Tarihi</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
 
-                        <div class="col-lg-6 col-md-12 wow fadeInUp bg-white p-4" data-wow-delay="0.1s">
-                            <div class="project-item rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <a class="d-block h5 mb-2" href="{{route("panel.advertdetail")}}">Veritabanı Optimizasyonu</a>                                </div>
-                                <div class="p-3 pb-0">
-                                    <h5 class="text-primary mb-3">$1,500 - $2,500</h5>
-                                    <p>Veritabanı performansını artırmak için deneyimli bir veritabanı uzmanı arıyoruz. Proje detaylarına göz atın ve başvuruda bulunun.</p>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-database text-primary me-2"></i>Database Optimization</small>
-                                </div>
-                            </div>
-                        </div>
+                        @foreach($adverts as $advert)
 
-                        <div class="col-lg-6 col-md-12 wow fadeInUp bg-white p-4" data-wow-delay="0.1s">
-                            <div class="project-item rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <a class="d-block h5 mb-2" href="{{route("panel.advertdetail")}}">Mobil Uygulama Geliştirme</a>                                </div>
-                                <div class="p-3 pb-0">
-                                    <h5 class="text-primary mb-3">$800 - $1,200</h5>
-                                    <p>Mobil uygulama projesi için deneyimli bir mobil uygulama geliştirici arıyoruz. İlgilenen adaylar bağlantıya tıklayarak başvuruda bulunabilirler.</p>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-mobile-alt text-primary me-2"></i>Mobile App Development</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow fadeInUp bg-light p-4" data-wow-delay="0.1s">
-                            <div class="project-item rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <a class="d-block h5 mb-2" href="{{route("panel.advertdetail")}}">Web Uygulaması Geliştirme</a>
-                                </div>
-                                <div class="p-3 pb-0">
-                                    <h5 class="text-primary mb-3">$1,000 - $2,000</h5>
-                                    <p>Web tabanlı bir uygulama geliştirmek için deneyimli bir yazılım geliştirici arıyoruz. Proje detaylarına göz atmak ve başvuruda bulunmak için bağlantıya tıklayın.</p>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-cogs text-primary me-2"></i>Frontend & Backend Development</small>
-                                </div>
-                            </div>
-                        </div>
+                            <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                    <strong>{{$advert["subject"]}}</strong>
+                                </td>
+                                <td>{{$advert["subject"]}}</td>
+                                <td>{{$advert["closed_date"]}}</td>
+                                <td>
+                                    @if($advert["status"] == 0)
+                                        <span class="badge bg-label-danger me-1">Atanmadı</span>
+                                    @else
+                                        <span class="badge bg-label-primary me-1">Atandı</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item"
+                                               href="{{route("panel.ilanlar.edit", ['id' => $advert->id])}}"
+                                            ><i class="bx bx-edit-alt me-1"></i>Düzenle</a
+                                            >
+                                            <a class="dropdown-item"
+                                               href="{{route("panel.ilanlar.destroy", ['id' => $advert->id])}}"
+                                            ><i class="bx bx-trash me-1"></i>Sil</a
+                                            >
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
 
-
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

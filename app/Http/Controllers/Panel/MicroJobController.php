@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Advert;
+use App\Models\MicroJob;
 use Illuminate\Http\Request;
 
-class AdvertController extends Controller
+class MicroJobController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $adverts = Advert::where("admin_id", auth()->guard("admin")->user()->id)->get();
-        return view('panel.pages.adverts', compact("adverts"));
+        $microjobs = MicroJob::where("admin_id", auth()->guard("admin")->user()->id)->get();
+        return view('panel.pages.microjob', compact("microjobs"));
     }
 
     /**
@@ -22,7 +22,7 @@ class AdvertController extends Controller
      */
     public function create()
     {
-        return view('panel.pages.addadvert');
+        return view('panel.pages.addmicrojob');
     }
 
     /**
@@ -35,13 +35,13 @@ class AdvertController extends Controller
             "content" => "required",
             "price" => "required",
         ]);
-        $model = new Advert();
+        $model = new MicroJob();
         $model->fill(array_merge($request->all(), [
             "admin_id" => auth()->guard("admin")->user()->id,
             "advert_no" => rand(1000, 9000),
             "status" => 0
         ]))->save();
-        return redirect()->route("panel.ilanlar.index");
+        return redirect()->route("panel.mikro-is.index");
     }
 
     /**
@@ -57,8 +57,8 @@ class AdvertController extends Controller
      */
     public function edit(string $id)
     {
-        $advert = Advert::findOrFail($id);
-        return view("panel.pages.advertdetail", compact("advert"));
+        $microjob = MicroJob::findOrFail($id);
+        return view("panel.pages.microdetail", compact("microjob"));
     }
 
     /**
@@ -71,9 +71,9 @@ class AdvertController extends Controller
             "content" => "required|sometimes",
             "price" => "required|sometimes",
         ]);
-        $model = Advert::findOrFail($id);
+        $model = MicroJob::findOrFail($id);
         $model->fill($request->all())->save();
-        return redirect()->route("panel.ilanlar.index");
+        return redirect()->route("panel.mikro-is.index");
     }
 
     /**
@@ -81,8 +81,8 @@ class AdvertController extends Controller
      */
     public function destroy(string $id)
     {
-        $model = Advert::findOrFail($id);
+        $model = MicroJob::findOrFail($id);
         $model->delete();
-        return redirect()->route("panel.ilanlar.index");
+        return redirect()->route("panel.mikro-is.index");
     }
 }
