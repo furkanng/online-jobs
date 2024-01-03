@@ -39,7 +39,7 @@
         <!-- Teklif Kısmı -->
         <div class="bg-light text-left rounded p-4 mt-4">
             <h6 class="mb-3">Teklif Verme</h6>
-            <form method="POST" action="{{route("user.bidPost",["advert" => $advert["advert_no"]])}}">
+            <form method="POST" action="{{route("user.microPost",["advert" => $advert["advert_no"]])}}">
                 @csrf
                 <div class="form-group mb-2">
                     <label for="bidAmount">Teklif Değeri</label>

@@ -10,38 +10,54 @@
                 <h2 class="mb-0">Kart Bilgisi</h2>
             </div>
             <div class="container mt-1">
+                <div class="d-flex flex-row justify-content-center">
+                    <h3>Bakiye : </h3>
+                    <button class="btn btn-outline-success mb-2 mx-2">{{auth()->guard("admin")->user()->account}} TL</button>
+                </div>
+
                 <div class="card mx-auto border-0" style="max-width: 500px; padding: 20px;">
-                    <form id="kartForm" action="/odeme-yap" method="post">
+                    <form action="{{route("panel.paraYukle")}}" method="POST">
+                        @csrf
                         <div class="form-group mt-3">
                             <label for="isimSoyisim">İsim Soyisim</label>
-                            <input type="text" class="form-control" id="isimSoyisim" name="isimSoyisim" required>
+                            <input type="text" class="form-control" id="isimSoyisim">
                         </div>
                         <div class="form-group mt-3">
                             <label for="kartNo">Kredi Kartı Numarası</label>
-                            <input type="text" class="form-control" id="kartNo" name="kartNo" required>
+                            <input type="text" class="form-control" id="kartNo">
                         </div>
                         <div class="form-group mt-3">
                             <label for="sonKullanimTarihi">Son Kullanma Tarihi</label>
-                            <input type="text" class="form-control" id="sonKullanimTarihi" name="sonKullanimTarihi" required>
+                            <input type="text" class="form-control" id="sonKullanimTarihi"
+                            >
                         </div>
                         <div class="form-group mt-3">
                             <label for="cvc">CVC</label>
-                            <input type="text" class="form-control" id="cvc" name="cvc" required>
+                            <input type="text" class="form-control" id="cvc">
                         </div>
-                        <button type="button" class="btn btn-primary btn-block mt-4" onclick="submitForm()">Kartı Kaydet</button>
+                        <div class="form-group mt-3">
+                            <label for="sonKullanimTarihi">Ücret</label>
+                            <input type="text" class="form-control" id="sonKullanimTarihi" name="price"
+                            >
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Ödeme Yap
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
 
         <!-- Card for displaying entered card information -->
-        <div id="savedCardSection" class="card mt-4 mx-auto border-0" style="max-width: 500px; padding: 20px; display: none;">
+        <div id="savedCardSection" class="card mt-4 mx-auto border-0"
+             style="max-width: 500px; padding: 20px; display: none;">
             <div class="card-header">
                 Kaydedilen Kart Bilgileri
             </div>
             <div class="card-body" id="cardInfoBody">
             </div>
-            <button type="button" class="btn btn-primary btn-block mt-4" onclick="showNewCard()">Yeni Kart Bilgisi Girişi</button>
+            <button type="button" class="btn btn-primary btn-block mt-4" onclick="showNewCard()">Yeni Kart Bilgisi
+                Girişi
+            </button>
         </div>
     </div>
 

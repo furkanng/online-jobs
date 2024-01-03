@@ -19,6 +19,8 @@
         <div class="navbar-nav w-100">
             <a href="{{ route("user.home") }}" class="nav-item nav-link active"><i class="fas fa-newspaper me-2"></i>İlanları
                 Görüntüle</a>
+            <a href="{{ route("user.microIndex") }}" class="nav-item nav-link"><i class="fas fa-newspaper me-2"></i>Mikro
+                İlanlar</a>
             <a href="{{ route("user.profile") }}" class="nav-item nav-link"><i class="fas fa-user me-2"></i></i>Profilim</a>
             <div class="nav-item dropdown">
                 <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i

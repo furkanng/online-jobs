@@ -15,6 +15,10 @@ return new class extends Migration {
             $table->integer("user_id");
             $table->string("advert_no");
             $table->double("price")->nullable();
+            $table->string("content")->nullable();
+            $table->string("day")->nullable();
+            $table->string("type")->nullable();
+            $table->boolean("status")->nullable()->default(0);
             $table->timestamps();
         });
     }

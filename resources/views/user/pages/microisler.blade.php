@@ -1,21 +1,25 @@
 @extends('user.layout.app')
 
-@section('title', 'Mikro İşlerim')
+@section('title', 'İlanlar')
 @section('content')
 
+    <!-- Recent Sales Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Mikro İşlerim</h6>
+                <h6 class="mb-0">İlanlar</h6>
+                <a href="">Show All</a>
             </div>
 
-            @foreach($userJobs as $job)
+
+            @foreach($adverts as $advert)
                 <div class="col-md mb-4 order-md-2">
                     <div class="card-link">
                         <div class="card p-3 position-relative">
                             <div class="position-absolute top-0 end-0 mt-2 me-2">
-                                <button class="btn btn-outline-dark">
-                                    Teslim Et
+                                <button class="btn btn-outline-dark"
+                                        onclick="window.location='{{ route("user.microdetail",["id" => $advert["id"]]) }}';">
+                                    Teklif Ver
                                 </button>
                             </div>
                             <div class="d-flex align-items-center">
@@ -23,16 +27,17 @@
                                     <i class="fas fa-newspaper fa-2x text-white"></i>
                                 </div>
                                 <div class="text-center">
-                                    <h5 class="card-title">{{  \App\Models\MicroJob::where("advert_no",$job["advert_no"])->first()->subject   }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted p-2">Fiyat : {{  $job["price"]   }} tl</h6>
+                                    <h5 class="card-title">{{  $advert["name"]   }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted p-2">{{  $advert["price"]   }} tl</h6>
                                     <p class="card-text">
-                                        {{  \App\Models\MicroJob::where("advert_no",$job["advert_no"])->first()->content   }}
+                                        {{  $advert["content"]   }}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center mt-3 text-info">
                                         <div>
-                                            <span class="p-2">Teslim Tarihi:</span>
+                                            <small class="text-muted">{{  $advert["created_at"]   }}</small>
+                                            <span class="p-2"></span>
                                             <span class="ml-2">
-                                                    {{  date('Y-m-d H:i:s', strtotime($job["created_at"] .'+'. $job["dead_line"].' days'))  }}
+                                                    <i class="far fa-bookmark"></i>
                                                 </span>
                                         </div>
                                     </div>
@@ -40,13 +45,13 @@
                             </div>
                         </div>
                     </div>
+                    <!-- İsteğe bağlı olarak başka kartlar ekleyebilirsiniz -->
                 </div>
-            @endforeach
 
+            @endforeach
 
         </div>
     </div>
-
-    <script src="{{ asset('../user/js/microtask.js') }}"></script>
+    <!-- Recent Sales End -->
 
 @endsection

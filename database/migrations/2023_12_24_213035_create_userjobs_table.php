@@ -14,11 +14,11 @@ return new class extends Migration {
             $table->id();
             $table->integer("user_id");
             $table->integer("admin_id");
-            $table->string("name")->nullable();
+            $table->string("type")->nullable();
             $table->string("advert_no")->nullable();
             $table->text("content")->nullable();
             $table->boolean("status")->nullable();
-            $table->dateTime("dead_line")->nullable();
+            $table->string("dead_line")->nullable();
             $table->double("price")->nullable();
             $table->timestamps();
         });

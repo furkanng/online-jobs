@@ -13,7 +13,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">İlan Bilgisi</th>
+                            <th scope="col">İlan Numarası</th>
                             <th scope="col">Teklif Veren</th>
                             <th scope="col">Teklif Değeri</th>
                             <th scope="col">Teslim Gün Sayısı</th>
@@ -21,49 +21,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>İlan</td>
-                            <td>Kurye Web Sitesi</td>
-                            <td>Seda MALKOÇ</td>
-                            <td>$1,800</td>
-                            <td>8 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Offer 1 -->
-                        <tr>
-                            <td>İlan 2</td>
-                            <td>Another Company</td>
-                            <td>John Doe</td>
-                            <td>$2,500</td>
-                            <td>10 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Offer 2 -->
-                        <tr>
-                            <td>İlan 3</td>
-                            <td>Web Design Project</td>
-                            <td>Alice Johnson</td>
-                            <td>$1,200</td>
-                            <td>7 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Offer 3 -->
-                        <tr>
-                            <td>İlan 4</td>
-                            <td>Software Development</td>
-                            <td>Bob Smith</td>
-                            <td>$3,000</td>
-                            <td>15 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
+
+                        @foreach($bids as $bid)
+                            @php $user = \App\Models\User::findOrFail($bid["user_id"]) @endphp
+                            <tr>
+                                <td>{{$bid["advert_no"]}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$bid["price"]}}</td>
+                                <td>{{$bid["day"]}}</td>
+                                <td>
+                                    <a href="{{route("panel.advertjobOnay",["id" =>$bid->id ])}}"
+                                       class="btn btn-primary btn-sm">Onayla</a>
+                                </td>
+                            </tr>
+
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>

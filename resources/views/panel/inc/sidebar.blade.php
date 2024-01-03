@@ -90,11 +90,6 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route("panel.payment")}}" class="menu-link">
-                        <div data-i18n="Basic">Ödeme</div>
-                    </a>
-                </li>
-                <li class="menu-item">
                     <a href="{{route("panel.txhistory")}}" class="menu-link">
                         <div data-i18n="Basic">Geçmiş Ödemeler</div>
                     </a>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bid;
 use App\Models\MicroJob;
+use App\Models\UserJobs;
 use Illuminate\Http\Request;
 
 class MicroJobController extends Controller
@@ -84,5 +86,32 @@ class MicroJobController extends Controller
         $model = MicroJob::findOrFail($id);
         $model->delete();
         return redirect()->route("panel.mikro-is.index");
+    }
+
+
+    public function microjobOnay(string $id)
+    {
+        $bid = Bid::findOrFail($id);
+        $bid->status = 1;
+        $bid->save();
+
+        $microjob = MicroJob::where("advert_no", $bid->advert_no)->first();
+        $microjob->status = 1;
+        $microjob->save();
+
+        $userJob = new UserJobs();
+
+        $userJob->user_id = $bid->user_id;
+        $userJob->admin_id = auth()->guard("admin")->user()->id;
+        $userJob->advert_no = $bid->advert_no;
+        $userJob->content = $bid->content;
+        $userJob->status = 0;
+        $userJob->type = "micro";
+        $userJob->dead_line = $bid->day;
+        $userJob->price = $bid->price;
+        $userJob->save();
+
+
+        return redirect()->back();
     }
 }

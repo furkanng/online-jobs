@@ -14,36 +14,47 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Proje Adı</th>
-                            <th>Proje Süresi</th>
-                            <th>İlgili Kategoriler</th>
-                            <th>Teklif Tarihi</th>
-                            <th>Teklif Güncelleme Tarihi</th>
+                            <th>Teklif Türü</th>
+                            <th>Proje Konusu</th>
+                            <th>Proje Bitiş Tarihi</th>
+                            <th>Teklif Edilen Fiyat</th>
                             <th>Durum</th>
-                            <th>Teklif Fiyatı</th>
-                            <th>Detay</th>
+                            <th>İlgili Kategoriler</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Proje Adı 1</td>
-                            <td>14 Gün</td>
-                            <td>Web Development, Laravel, Frontend</td>
-                            <td>2023-01-01</td>
-                            <td>2023-01-03</td>
-                            <td class="text-danger">Reddedildi</td>
-                            <td>$500</td>
-                        </tr>
-                        <tr>
-                            <td>Proje Adı 2</td>
-                            <td>30 Gün</td>
-                            <td>Mobile App, UI/UX Design</td>
-                            <td>2023-01-02</td>
-                            <td>2023-01-04</td>
-                            <td class="text-success">Kabul Edildi</td>
-                            <td>$700</td>
-                            <td><button class="btn btn-info" onclick="showDetails('Proje Adı 2')">Detay</button></td>
-                        </tr>
+                        @foreach($bids as $bid)
+                            <tr>
+                                @if($bid["type"] == "micro")
+                                    <td>Mikro iş</td>
+                                @else
+                                    <td>İlan</td>
+                                @endif
+                                @if($bid["type"] == "micro")
+                                    <td>{{\App\Models\MicroJob::where("advert_no",$bid["advert_no"])->first()->subject}}</td>
+                                @else
+                                    <td>{{\App\Models\Advert::where("advert_no",$bid["advert_no"])->first()->subject}}</td>
+                                @endif
+                                @if($bid["type"] == "micro")
+                                    <td>{{\App\Models\MicroJob::where("advert_no",$bid["advert_no"])->first()->closed_date}}</td>
+                                @else
+                                    <td>{{\App\Models\Advert::where("advert_no",$bid["advert_no"])->first()->closed_date}}</td>
+                                @endif
+                                <td>{{$bid["price"]}}</td>
+                                <td>
+                                    @if($bid["status"] == "1")
+                                        <button class="btn btn-sm btn-success">Onaylandı</button>
+                                    @else
+                                        <button class="btn btn-sm btn-danger">Onaylanmadı</button>
+                                    @endif
+                                </td>
+                                @if($bid["type"] == "micro")
+                                    <td>{{\App\Models\MicroJob::where("advert_no",$bid["advert_no"])->first()->section}}</td>
+                                @else
+                                    <td>{{\App\Models\Advert::where("advert_no",$bid["advert_no"])->first()->section}}</td>
+                                @endif
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

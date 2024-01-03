@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advert;
+use App\Models\Bid;
+use App\Models\MicroJob;
+use App\Models\UserJobs;
 use Illuminate\Http\Request;
 
 class AdvertController extends Controller
@@ -84,5 +87,31 @@ class AdvertController extends Controller
         $model = Advert::findOrFail($id);
         $model->delete();
         return redirect()->route("panel.ilanlar.index");
+    }
+
+    public function advertjobOnay(string $id)
+    {
+        $bid = Bid::findOrFail($id);
+        $bid->status = 1;
+        $bid->save();
+
+        $microjob = Advert::where("advert_no", $bid->advert_no)->first();
+        $microjob->status = 1;
+        $microjob->save();
+
+        $userJob = new UserJobs();
+
+        $userJob->user_id = $bid->user_id;
+        $userJob->admin_id = auth()->guard("admin")->user()->id;
+        $userJob->advert_no = $bid->advert_no;
+        $userJob->content = $bid->content;
+        $userJob->status = 0;
+        $userJob->type = "advert";
+        $userJob->dead_line = $bid->day;
+        $userJob->price = $bid->price;
+        $userJob->save();
+
+
+        return redirect()->back();
     }
 }

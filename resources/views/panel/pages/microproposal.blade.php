@@ -13,7 +13,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">İlan Bilgisi</th>
+                            <th scope="col">İlan Numarası</th>
                             <th scope="col">Teklif Veren</th>
                             <th scope="col">Teklif Değeri</th>
                             <th scope="col">Teslim Gün Sayısı</th>
@@ -21,49 +21,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Mikro İş 1</td>
-                            <td>Youtube Abonelik</td>
-                            <td>Fatih Sayar</td>
-                            <td>$200</td>
-                            <td>1 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Micro Job 2 -->
-                        <tr>
-                            <td>Mikro İş 2</td>
-                            <td>Sosyal Medya Gönderi Tasarımı</td>
-                            <td>Ayşe Demir</td>
-                            <td>$50</td>
-                            <td>2 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Micro Job 3 -->
-                        <tr>
-                            <td>Mikro İş 3</td>
-                            <td>Logo Tasarımı</td>
-                            <td>Mert Yılmaz</td>
-                            <td>$100</td>
-                            <td>3 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
-                        <!-- Example Micro Job 4 -->
-                        <tr>
-                            <td>Mikro İş 4</td>
-                            <td>İngilizce Çeviri</td>
-                            <td>Zeynep Kaya</td>
-                            <td>$30</td>
-                            <td>1 gün</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Onayla</a>
-                            </td>
-                        </tr>
+
+                        @foreach($bids as $bid)
+                            @php $user = \App\Models\User::findOrFail($bid["user_id"]) @endphp
+                            <tr>
+                                <td>{{$bid["advert_no"]}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$bid["price"]}}</td>
+                                <td>{{$bid["day"]}}</td>
+                                <td>
+                                    <a href="{{route("panel.microjobOnay",["id" =>$bid->id ])}}"
+                                       class="btn btn-primary btn-sm">Onayla</a>
+                                </td>
+                            </tr>
+
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>

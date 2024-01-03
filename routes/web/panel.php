@@ -28,11 +28,15 @@ Route::middleware("adminMiddleware")->group(function () {
         'destroy' => 'panel.mikro-is.destroy',
     ]);
     Route::get("/ilan-teklif", [HomeController::class, "proposal"])->name('panel.proposal');
-    Route::get("/odeme", [HomeController::class, "payment"])->name('panel.payment');
     Route::get("/kart-bilgi", [HomeController::class, "cardinfo"])->name('panel.cardinfo');
     Route::get("/gecmis-odemeler", [HomeController::class, "txhistory"])->name('panel.txhistory');
 
     Route::get("/mikro-is-teklif", [HomeController::class, "microproposal"])->name('panel.microproposal');
+
+    Route::get("/mikro-is-onay/{id}", [MicroJobController::class, "microjobOnay"])->name('panel.microjobOnay');
+    Route::get("/ilan-onay/{id}", [AdvertController::class, "advertjobOnay"])->name('panel.advertjobOnay');
+
+    Route::post("/para-yukle", [HomeController::class, "paraYukle"])->name('panel.paraYukle');
 
 
     Route::get('cikis-yap', [AuthController::class, 'logout'])->name('panel.logout');

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Advert;
 use App\Models\Bid;
+use App\Models\MicroJob;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -19,6 +22,15 @@ class HomeController extends Controller
     public function loginGet()
     {
         return view('panel.pages.login');
+    }
+
+    public function paraYukle(Request $request)
+    {
+        $model = Admin::findOrFail(auth()->guard("admin")->user()->id);
+        $model->account = $request->get("price") + $model->account;
+        $model->save();
+
+        return redirect()->route("panel.cardinfo");
     }
 
     public function addadvert()
@@ -43,7 +55,9 @@ class HomeController extends Controller
 
     public function proposal()
     {
-        return view('panel.pages.proposal');
+        $advertNo = Advert::where("admin_id", auth()->guard("admin")->user()->id)->pluck("advert_no");
+        $bids = Bid::where("type", "advert")->where("status", "0")->whereIn("advert_no", $advertNo)->get();
+        return view('panel.pages.proposal', compact("bids"));
     }
 
     public function payment()
@@ -83,6 +97,8 @@ class HomeController extends Controller
 
     public function microproposal()
     {
-        return view('panel.pages.microproposal');
+        $advertNo = MicroJob::where("admin_id", auth()->guard("admin")->user()->id)->pluck("advert_no");
+        $bids = Bid::where("type", "micro")->where("status", "0")->whereIn("advert_no", $advertNo)->get();
+        return view('panel.pages.microproposal', compact("bids"));
     }
 }
