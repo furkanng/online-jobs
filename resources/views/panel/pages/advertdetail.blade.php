@@ -69,13 +69,26 @@
                                         </div>
                                     </form>
                                 </div>
+
+
+                                <div class="d-flex flex-column">
+
+                                    <img src="http://online-jobs.test/storage/image/{{$advert["image"]}}"
+                                         style="width: 200px">
+
+                                    <a href="{{route("user.odemeyap",["id" => $advert["id"]])}}">
+                                        <button class="btn btn-success btn-sm">Ödeme Yap</button>
+
+
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
     </div>
 @endsection

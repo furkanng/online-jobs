@@ -10,13 +10,17 @@
             </div>
 
             @foreach($userJobs as $job)
+
                 <div class="col-md mb-4 order-md-2">
                     <div class="card-link">
                         <div class="card p-3 position-relative">
                             <div class="position-absolute top-0 end-0 mt-2 me-2">
-                                <button class="btn btn-outline-dark">
-                                    Teslim Et
-                                </button>
+                                <a href="{{route("user.teslim",["id" => $job["id"] ])}}">
+                                    <button class="btn btn-outline-dark">
+                                        Teslim Et
+                                    </button>
+                                </a>
+
                             </div>
                             <div class="d-flex align-items-center">
                                 <div class="icon mr-3 rounded-circle bg-primary p-2">
@@ -24,7 +28,8 @@
                                 </div>
                                 <div class="text-center">
                                     <h5 class="card-title">{{  \App\Models\MicroJob::where("advert_no",$job["advert_no"])->first()->subject   }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted p-2">Fiyat : {{  $job["price"]   }} tl</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted p-2">Fiyat : {{  $job["price"]   }}
+                                        tl</h6>
                                     <p class="card-text">
                                         {{  \App\Models\MicroJob::where("advert_no",$job["advert_no"])->first()->content   }}
                                     </p>
@@ -41,8 +46,8 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
 
+            @endforeach
 
         </div>
     </div>

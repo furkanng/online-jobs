@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Advert;
 use App\Models\Bid;
 use App\Models\MicroJob;
+use App\Models\User;
 use App\Models\UserJobs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdvertController extends Controller
 {
@@ -111,6 +114,45 @@ class AdvertController extends Controller
         $userJob->price = $bid->price;
         $userJob->save();
 
+
+        return redirect()->back();
+    }
+
+    public function teslim(Request $request, string $id)
+    {
+        $request->validate([
+            "image" => "required",
+        ]);
+
+        $filename = "image-" . rand(1, 300) . "." . $request->file('image')->getClientOriginalExtension();
+        Storage::disk('public')->put('image/' . $filename, file_get_contents($request->file('image')));
+
+        $userjob = UserJobs::findOrFail($id);
+        $userjob->status = 1;
+        $userjob->save();
+
+        $micro = Advert::where("advert_no", $userjob->advert_no)->first();
+        $micro->teslim = 1;
+        $micro->image = $filename;
+        $micro->save();
+
+        return redirect()->back();
+    }
+
+    public function odemeyap(string $id)
+    {
+        $advert = Advert::findOrFail($id);
+
+        $userJob = UserJobs::where("advert_no", $advert->advert_no)->first();
+
+        $user = User::findOrFail($userJob->user_id);
+        $user->account = ($user->account + $userJob->price);
+        $user->save();
+
+
+        $admin = Admin::findOrFail($userJob->admin_id);
+        $admin->account = ($admin->account - $userJob->price);
+        $admin->save();
 
         return redirect()->back();
     }

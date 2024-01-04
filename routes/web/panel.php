@@ -38,6 +38,8 @@ Route::middleware("adminMiddleware")->group(function () {
 
     Route::post("/para-yukle", [HomeController::class, "paraYukle"])->name('panel.paraYukle');
 
+    Route::get("/odeme-yap/{id}", [AdvertController::class, "odemeyap"])->name("user.odemeyap");
+
 
     Route::get('cikis-yap', [AuthController::class, 'logout'])->name('panel.logout');
 });

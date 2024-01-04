@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\AdvertController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\BidController;
 use App\Http\Controllers\User\HomeController;
@@ -26,6 +27,10 @@ Route::middleware("userMiddleware")->group(function () {
     Route::post('/micro-teklif-ver/{advert}', [MicroController::class, 'microPost'])->name('user.microPost');
 
     Route::get('/hesaba-aktar/{id}', [HomeController::class, 'hesap'])->name('user.hesap');
+
+    Route::get("/teslim-micro/{id}", [MicroController::class, "teslim"])->name("user.teslim");
+    Route::post("/teslim-advert/{id}", [AdvertController::class, "teslim"])->name("user.teslimAdvert");
+
 
     Route::get('cikis-yap', [AuthController::class, 'logout'])->name('user.logout');
 });

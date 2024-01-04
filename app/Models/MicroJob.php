@@ -13,6 +13,7 @@ class MicroJob extends Model
 
     protected $fillable = [
         "admin_id",
+        "teslim",
         "advert_no",
         "subject",
         "section",

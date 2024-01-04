@@ -55,6 +55,7 @@ class HomeController extends Controller
     public function microjob()
     {
         $userJobs = UserJobs::where("user_id", \auth()->guard("user")->user()->id)->where("type", "micro")->where("status", "0")->get();
+
         return view('user.pages.microjob', compact("userJobs"));
     }
 

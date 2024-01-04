@@ -33,7 +33,11 @@
                                 @if($microjob["status"] == 0)
                                     <span class="badge bg-label-danger me-1">Atanmadı</span>
                                 @else
-                                    <span class="badge bg-label-primary me-1">Atandı</span>
+                                    @if($microjob["teslim"] == 0)
+                                        <span class="badge bg-label-primary me-1">Atandı</span>
+                                    @else
+                                        <span class="badge bg-label-success me-1">Teslim Edildi</span>
+                                    @endif
                                 @endif
                             </td>
                             <td>

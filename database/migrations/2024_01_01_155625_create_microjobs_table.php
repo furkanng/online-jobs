@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string("section")->nullable();
             $table->dateTime("closed_date")->nullable();
             $table->boolean("status");
+            $table->boolean("teslim");
             $table->timestamps();
         });
     }
