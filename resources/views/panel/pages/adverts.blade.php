@@ -19,12 +19,10 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-
                         @foreach($adverts as $advert)
-
                             <tr>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{$advert["subject"]}}</strong>
+                                    <strong>{{$advert["content"]}}</strong>
                                 </td>
                                 <td>{{$advert["subject"]}}</td>
                                 <td>{{$advert["closed_date"]}}</td>
@@ -55,7 +53,6 @@
                                 </td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 </div>

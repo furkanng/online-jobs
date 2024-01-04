@@ -39,13 +39,10 @@
     </nav>
 </div>
 <!-- Sidebar End -->
-<!-- jQuery kütüphanesini ekleyin (isteğe bağlı) -->
-<!-- jQuery kütüphanesini ekleyin (isteğe bağlı) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
     $(document).ready(function () {
-        // Sayfa yüklendiğinde çağrılacak fonksiyon
         updateActiveLink();
 
         // Her bir nav-item'e tıklandığında çağrılacak fonksiyon
@@ -76,12 +73,9 @@
 
             // Her bir link için kontrol et
             $('.navbar-nav a.nav-link').each(function () {
-                // Eğer linkin href değeri, aktif olan sayfanın URL'siyle eşleşiyorsa
                 if ($(this).attr('href') === currentHref) {
-                    // Bu linki aktif yap (active sınıfını ekle)
                     $(this).addClass('active');
 
-                    // Dropdown linkine tıklandığında dropdown'un kendisini de active yap
                     if ($(this).hasClass('dropdown-toggle')) {
                         $(this).closest('.dropdown').addClass('active');
                     }

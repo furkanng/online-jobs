@@ -15,8 +15,9 @@ class HomeController extends Controller
     {
         $adverts = Advert::all();
         $advertCount = $adverts->count();
-
-        return view('panel.pages.home');
+        $proposal = Bid::all();
+        $proposalCount = $proposal->count();
+        return view('panel.pages.home',compact('advertCount',"proposalCount"));
     }
 
     public function loginGet()
@@ -57,7 +58,8 @@ class HomeController extends Controller
     {
         $advertNo = Advert::where("admin_id", auth()->guard("admin")->user()->id)->pluck("advert_no");
         $bids = Bid::where("type", "advert")->where("status", "0")->whereIn("advert_no", $advertNo)->get();
-        return view('panel.pages.proposal', compact("bids"));
+        return view('panel.pages.proposal', compact("bids",));
+
     }
 
     public function payment()

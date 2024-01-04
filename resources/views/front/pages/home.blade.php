@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                             <a class="cat-item d-block bg-light text-center rounded p-3"
-                               href="{{route("panel.adminlogin")}}">
+                               href="{{route("panel.login")}}">
                                 <div class="rounded p-4">
                                     <div class="icon mb-3">
                                         <i class="fas fa-user-tie fa-2x"></i>

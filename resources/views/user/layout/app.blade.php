@@ -23,7 +23,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{asset("user/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
     <link href="{{asset("user/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")}}" rel="stylesheet"/>
-
+    <link rel="icon" type="image/x-icon" href="{{asset("panel/assets/img/favicon/favicon.ico")}}"/>
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset("user/css/bootstrap.min.css")}}" rel="stylesheet">
 

@@ -50,7 +50,7 @@
                     <input type="text" class="form-control" id="deliveryTime" name="day" placeholder="Gün">
                 </div>
                 <div class="form-group  mb-3">
-                    <label for="proposal">Describe your proposal (minimum 100 characters)</label>
+                    <label for="proposal">Describe your proposal</label>
                     <textarea class="form-control" id="proposal" name="content" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Teklif Ver</button>
