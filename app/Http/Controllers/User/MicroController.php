@@ -17,7 +17,7 @@ class MicroController extends Controller
         $request->validate([
             "price" => "required|numeric",
             "content" => "required|string",
-            "day" => "required|date",
+            "day" => "required",
         ]);
         $model = new Bid();
         $model->fill(array_merge($request->all(), [
