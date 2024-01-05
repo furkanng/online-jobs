@@ -15,9 +15,9 @@ class MicroController extends Controller
     public function microPost(Request $request, string $advert)
     {
         $request->validate([
-            "price" => "required",
-            "content" => "required",
-            "day" => "required",
+            "price" => "required|numeric",
+            "content" => "required|string",
+            "day" => "required|date",
         ]);
         $model = new Bid();
         $model->fill(array_merge($request->all(), [

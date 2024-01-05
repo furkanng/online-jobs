@@ -31,7 +31,7 @@ class BidController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "price" => "required",
+            "price" => "required|numeric",
         ]);
         $model = new Bid();
         $model->fill($request->all())->save();
@@ -61,7 +61,7 @@ class BidController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "price" => "required|sometimes",
+            "price" => "required|sometimes|numeric",
         ]);
         $model = Bid::findOrFail($id);
         $model->fill($request->all())->save();

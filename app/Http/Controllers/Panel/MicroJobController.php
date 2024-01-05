@@ -33,9 +33,9 @@ class MicroJobController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "subject" => "required",
-            "content" => "required",
-            "price" => "required",
+            "subject" => "required|string",
+            "content" => "required|string",
+            "price" => "required|numeric",
         ]);
         $model = new MicroJob();
         $model->fill(array_merge($request->all(), [
@@ -69,9 +69,9 @@ class MicroJobController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "subject" => "required|sometimes",
-            "content" => "required|sometimes",
-            "price" => "required|sometimes",
+            "subject" => "sometimes|required|string",
+            "content" => "sometimes|required|string",
+            "price" => "sometimes|required|numeric",
         ]);
         $model = MicroJob::findOrFail($id);
         $model->fill($request->all())->save();

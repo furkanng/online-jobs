@@ -37,18 +37,21 @@ class AdvertController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "subject" => "required",
-            "content" => "required",
-            "price" => "required",
+            "subject" => "required|string",
+            "content" => "required|string",
+            "price" => "required|numeric", // Fiyatın sayısal bir değer olması gerekiyor
         ]);
+
         $model = new Advert();
         $model->fill(array_merge($request->all(), [
             "admin_id" => auth()->guard("admin")->user()->id,
             "advert_no" => rand(1000, 9000),
             "status" => 0
         ]))->save();
+
         return redirect()->route("panel.ilanlar.index");
     }
+
 
     /**
      * Display the specified resource.
@@ -67,18 +70,17 @@ class AdvertController extends Controller
         return view("panel.pages.advertdetail", compact("advert"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "subject" => "required|sometimes",
-            "content" => "required|sometimes",
-            "price" => "required|sometimes",
+            "subject" => "sometimes|required|string",
+            "content" => "sometimes|required|string",
+            "price" => "sometimes|required|numeric", // Fiyatın sayısal bir değer olması gerekiyor
         ]);
+
         $model = Advert::findOrFail($id);
         $model->fill($request->all())->save();
+
         return redirect()->route("panel.ilanlar.index");
     }
 
@@ -121,7 +123,7 @@ class AdvertController extends Controller
     public function teslim(Request $request, string $id)
     {
         $request->validate([
-            "image" => "required",
+            "image" => "required|image",
         ]);
 
         $filename = "image-" . rand(1, 300) . "." . $request->file('image')->getClientOriginalExtension();

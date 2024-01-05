@@ -99,36 +99,30 @@
 
     </ul>
 </aside>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 <script>
     $(document).ready(function () {
         updateActiveLink();
 
         $('.menu-item a.menu-link').on('click', function () {
             // Tüm linklerden active sınıfını kaldır
-            $('.menu-item a.menu-link').removeClass('active');
+            $('.menu-item').removeClass('active');
 
-            // Tıklanan linki ve üstteki ana menü öğesini active yap
-            $(this).addClass('active').closest('.menu-item').find('> a.menu-link').addClass('active');
+            // Tıklanan menü öğesine ve bağlantısına active sınıfını ekle
+            $(this).closest('.menu-item').addClass('active');
         });
 
         function updateActiveLink() {
             var currentHref = window.location.href;
 
             // Tüm linklerden active sınıfını kaldır
-            $('.menu-item a.menu-link').removeClass('active');
+            $('.menu-item').removeClass('active');
 
             // Her bir link için kontrol et
             $('.menu-item a.menu-link').each(function () {
                 if ($(this).attr('href') === currentHref) {
-                    $(this).addClass('active').closest('.menu-item').find('> a.menu-link').addClass('active');
+                    $(this).closest('.menu-item').addClass('active');
                 }
             });
         }
     });
-
 </script>
-
-

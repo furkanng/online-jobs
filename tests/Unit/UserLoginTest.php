@@ -4,9 +4,9 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase; // Tests\TestCase sınıfını ekledik
 
-class UserLoginTest extends TestCase
+class UserLoginTest extends TestCase // Tests\TestCase sınıfını miras aldık
 {
     use RefreshDatabase, WithFaker;
 
@@ -20,7 +20,7 @@ class UserLoginTest extends TestCase
             "password" => "12345678"
         ];
 
-        $response = $this->call('POST', route("user.login"), $user);
+        $response = $this->post(route("user.login"), $user); // post fonksiyonunu kullandık
         $response->assertOk();
 
         $response->assertRedirect(route('panel.home'));
