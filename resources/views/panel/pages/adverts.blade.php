@@ -48,10 +48,15 @@
                                                href="{{route("panel.ilanlar.edit", ['id' => $advert->id])}}"
                                             ><i class="bx bx-edit-alt me-1"></i>Düzenle</a
                                             >
-                                            <a class="dropdown-item"
-                                               href="{{route("panel.ilanlar.destroy", ['id' => $advert->id])}}"
-                                            ><i class="bx bx-trash me-1"></i>Sil</a
-                                            >
+                                            <form method="POST" action="{{ route('panel.ilanlar.destroy', ['id' => $advert->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="dropdown-item">
+                                                    <i class="bx bx-trash me-1"></i>Sil
+                                                </button>
+                                            </form>
+
                                         </div>
                                     </div>
                                 </td>

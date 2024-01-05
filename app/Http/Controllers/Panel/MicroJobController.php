@@ -35,13 +35,14 @@ class MicroJobController extends Controller
         $request->validate([
             "subject" => "required|string",
             "content" => "required|string",
-            "price" => "required|numeric",
+            "price" => "required",
         ]);
         $model = new MicroJob();
         $model->fill(array_merge($request->all(), [
             "admin_id" => auth()->guard("admin")->user()->id,
             "advert_no" => rand(1000, 9000),
-            "status" => 0
+            "status" => 0,
+            "teslim" => 0,
         ]))->save();
         return redirect()->route("panel.mikro-is.index");
     }

@@ -46,7 +46,8 @@ class AdvertController extends Controller
         $model->fill(array_merge($request->all(), [
             "admin_id" => auth()->guard("admin")->user()->id,
             "advert_no" => rand(1000, 9000),
-            "status" => 0
+            "status" => 0,
+            "teslim" => 0
         ]))->save();
 
         return redirect()->route("panel.ilanlar.index");
@@ -91,7 +92,7 @@ class AdvertController extends Controller
     {
         $model = Advert::findOrFail($id);
         $model->delete();
-        return redirect()->route("panel.ilanlar.index");
+        return redirect()->back();
     }
 
     public function advertjobOnay(string $id)

@@ -51,10 +51,15 @@
                                            href="{{route("panel.mikro-is.edit", ['id' => $microjob->id])}}"
                                         ><i class="bx bx-edit-alt me-1"></i>Düzenle</a
                                         >
-                                        <a class="dropdown-item"
-                                           href="{{route("panel.mikro-is.destroy", ['id' => $microjob->id])}}"
-                                        ><i class="bx bx-trash me-1"></i>Sil</a
-                                        >
+                                        <form method="POST"
+                                              action="{{ route('panel.mikro-is.destroy', ['id' => $microjob->id]) }}">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="bx bx-trash me-1"></i>Sil
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
