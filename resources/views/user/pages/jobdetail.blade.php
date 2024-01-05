@@ -59,3 +59,20 @@
     </div>
 
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var bidAmountInput = document.getElementById('bidAmount');
+        var deliveryTimeInput = document.getElementById('deliveryTime');
+
+        bidAmountInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            bidAmountInput.value = bidAmountInput.value.replace(/\D/g, '');
+        });
+
+        deliveryTimeInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            deliveryTimeInput.value = deliveryTimeInput.value.replace(/\D/g, '');
+        });
+    });
+</script>

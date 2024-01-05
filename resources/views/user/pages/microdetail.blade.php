@@ -9,7 +9,6 @@
                 <h6>Teklifler: <span>{{$count}}</span></h6>
             </div>
 
-
             <div class="row">
                 <div class="col-md mb-4 order-md-2 bg-white text-left rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -59,3 +58,21 @@
     </div>
 
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var bidAmountInput = document.getElementById('bidAmount');
+        var deliveryTimeInput = document.getElementById('deliveryTime');
+
+        bidAmountInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            bidAmountInput.value = bidAmountInput.value.replace(/\D/g, '');
+        });
+
+        deliveryTimeInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            deliveryTimeInput.value = deliveryTimeInput.value.replace(/\D/g, '');
+        });
+    });
+</script>
