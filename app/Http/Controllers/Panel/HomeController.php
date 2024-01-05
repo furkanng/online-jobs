@@ -102,5 +102,6 @@ class HomeController extends Controller
         $advertNo = MicroJob::where("admin_id", auth()->guard("admin")->user()->id)->pluck("advert_no");
         $bids = Bid::where("type", "micro")->where("status", "0")->whereIn("advert_no", $advertNo)->get();
         return view('panel.pages.microproposal', compact("bids"));
+
     }
 }

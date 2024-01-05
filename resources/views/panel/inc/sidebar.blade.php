@@ -89,11 +89,6 @@
                         <div data-i18n="Basic">Kart Bilgileri</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="{{route("panel.txhistory")}}" class="menu-link">
-                        <div data-i18n="Basic">Geçmiş Ödemeler</div>
-                    </a>
-                </li>
             </ul>
         </li>
 

@@ -36,11 +36,10 @@
                             <input type="text" class="form-control" id="cvc">
                         </div>
                         <div class="form-group mt-3">
-                            <label for="sonKullanimTarihi">Ücret</label>
-                            <input type="text" class="form-control" id="sonKullanimTarihi" name="price"
-                            >
+                            <label for="price">Ücret</label>
+                            <input type="text" class="form-control" id="price" name="price">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Ödeme Yap
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Bakiye Ekle
                         </button>
                     </form>
                 </div>
@@ -64,6 +63,76 @@
 @endsection
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var cvcInput = document.getElementById('cvc');
+        var kartNoInput = document.getElementById('kartNo');
+        var isimSoyisimInput = document.getElementById('isimSoyisim');
+        var priceInput = document.getElementById('price');
+        var sonKullanimInput = document.getElementById('sonKullanimTarihi');
+
+        // Set the maximum lengths for CVV and credit card number
+        var maxCVClength = 3;
+        var maxKartNolength = 16;
+
+        cvcInput.addEventListener('input', function () {
+            if (cvcInput.value.length > maxCVClength) {
+                cvcInput.value = cvcInput.value.slice(0, maxCVClength);
+                alert('CVV should be ' + maxCVClength + ' characters long.');
+            }
+            if (isNaN(cvcInput.value)) {
+                alert('CVC should be numeric. Please enter only digits.');
+                cvcInput.value = '';
+            }
+        });
+
+        kartNoInput.addEventListener('input', function () {
+            kartNoInput.value = kartNoInput.value.replace(/\D/g, '');
+
+            if (kartNoInput.value.length > maxKartNolength) {
+                kartNoInput.value = kartNoInput.value.slice(0, maxKartNolength);
+                alert('Credit Card Number should be ' + maxKartNolength + ' characters long.');
+            }
+
+            if (isNaN(kartNoInput.value)) {
+                alert('Credit card number should be numeric. Please enter only digits.');
+                kartNoInput.value = '';
+            }
+        });
+
+        isimSoyisimInput.addEventListener('input', function () {
+            if (!/^[a-zA-ZğüşıöçĞÜŞİÖÇ ]*$/.test(isimSoyisimInput.value)) {
+                alert('Only letters and spaces are allowed. Please enter a valid name.');
+                isimSoyisimInput.value = '';
+            }
+        });
+
+        priceInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            priceInput.value = priceInput.value.replace(/\D/g, '');
+        });
+
+        priceInput.addEventListener('keypress', function (event) {
+            // Allow only numeric characters and some special keys (e.g., backspace, delete)
+            var allowedChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Delete'];
+            if (!allowedChars.includes(event.key)) {
+                event.preventDefault();
+            }
+        });
+
+        sonKullanimInput.addEventListener('input', function () {
+            // Remove non-numeric and non-slash characters
+            var cleanedInput = sonKullanimInput.value.replace(/[^0-9/]/g, '');
+
+            // Check if the cleaned input has the format "MM/YY"
+            if (/^(0[1-9]|1[0-2])\/\d{2}$/.test(cleanedInput)) {
+                sonKullanimInput.value = cleanedInput;
+            } else {
+                alert('Please enter the expiration date in the format MM/YY.');
+                sonKullanimInput.value = '';
+            }
+        });
+    });
+
     function submitForm() {
         var form = document.getElementById('kartForm');
         var cardData = {
@@ -75,9 +144,8 @@
 
         displaySavedCardInfo(cardData);
 
-        // form.submit();
         form.reset();
-        alert('Bilgileriniz başarıyla kaydedildi!'); // Alert mesajını göster
+        alert('Bilgileriniz başarıyla kaydedildi!');
 
         document.getElementById('newCardSection').style.display = 'none';
         document.getElementById('savedCardSection').style.display = 'block';
@@ -85,7 +153,6 @@
 
     function displaySavedCardInfo(cardData) {
         var cardInfoBody = document.getElementById('cardInfoBody');
-
         cardInfoBody.innerHTML = '';
 
         var isimSoyisim = document.createElement('p');
@@ -111,4 +178,8 @@
         document.getElementById('savedCardSection').style.display = 'none';
         document.getElementById('kartForm').reset();
     }
+
 </script>
+
+
+

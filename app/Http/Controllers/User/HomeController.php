@@ -61,7 +61,9 @@ class HomeController extends Controller
 
     public function donejob()
     {
-        return view('user.pages.donejob');
+        $advertno = Advert::where("teslim", "1")->pluck("advert_no");
+        $adverts = UserJobs::whereIn("advert_no", $advertno)->where("user_id", auth()->guard("user")->user()->id)->where("status","1")->get();
+        return view('user.pages.donejob', compact("adverts"));
     }
 
     public function activejob()

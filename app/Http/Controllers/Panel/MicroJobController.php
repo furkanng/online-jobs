@@ -70,9 +70,9 @@ class MicroJobController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "subject" => "sometimes|required|string",
-            "content" => "sometimes|required|string",
-            "price" => "sometimes|required|numeric",
+            "subject" => "sometimes|required",
+            "content" => "sometimes|required",
+            "price" => "sometimes|required",
         ]);
         $model = MicroJob::findOrFail($id);
         $model->fill($request->all())->save();

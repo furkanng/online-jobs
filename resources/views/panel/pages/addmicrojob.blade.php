@@ -47,3 +47,54 @@
         </div>
     </div>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Numeric input için event listener
+        var priceInput = document.getElementById('price');
+
+        priceInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            priceInput.value = priceInput.value.replace(/\D/g, '');
+        });
+
+        priceInput.addEventListener('keypress', function (event) {
+            // Allow only numeric characters and some special keys (e.g., backspace, delete)
+            var allowedChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Delete'];
+            if (!allowedChars.includes(event.key)) {
+                event.preventDefault();
+            }
+        });
+
+        // Tarih input için event listener
+        var sonBasvuruTarihiInput = document.getElementById('son_basvuru_tarihi');
+
+        // Get today's date in the format "YYYY-MM-DD"
+        var today = new Date().toISOString().split('T')[0];
+
+        sonBasvuruTarihiInput.addEventListener('input', function () {
+            // Check if the selected date is before today
+            if (sonBasvuruTarihiInput.value < today) {
+                alert('Geçerli bir tarih seçiniz.');
+                sonBasvuruTarihiInput.value = today;
+            }
+        });
+
+        // Seçilen öğeleri güncelleyen fonksiyon
+        function updateSelectedOption() {
+            var selectedOptions = [];
+            var selectElement = document.getElementById("softwareOptions");
+
+            for (var i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].selected) {
+                    selectedOptions.push(selectElement.options[i].value);
+                }
+            }
+
+            var selectedOptionDiv = document.getElementById("selectedOption");
+            selectedOptionDiv.innerHTML = "Seçilen Öğeler: " + selectedOptions.join(", ");
+        }
+
+        // Diğer event listener'lar ve fonksiyonlar buraya eklenir
+    });
+</script>

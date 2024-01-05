@@ -34,7 +34,6 @@
             <a href="{{route("user.bid")}}" class="nav-item nav-link"><i
                     class="fa fa-handshake me-2"></i>Tekliflerim</a>
             <a href="{{route("user.wallet")}}" class="nav-item nav-link"><i class="fas fa-wallet"></i>Cüzdan</a>
-            <a href="{{route("user.message")}}" class="nav-item nav-link"><i class="fas fa-comment-alt"></i>Mesajlar</a>
         </div>
     </nav>
 </div>
